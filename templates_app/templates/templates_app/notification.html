@@ -1,0 +1,11 @@
+{% if message %}
+    <div class="notification {{ message.type }}">
+        <strong>{{ message.title }}</strong><br>
+        {{ message.text }}
+    </div>
+{% else %}
+    <div class="notification warning">
+        <strong>Notice:</strong><br>
+        No new notifications at the moment.
+    </div>
+{% endif %}

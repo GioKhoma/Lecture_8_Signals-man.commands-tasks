@@ -1,0 +1,28 @@
+{% extends "templates_app/base.html" %}
+{% block title %}Profiles{% endblock %}
+
+{% block content %}
+    <h2>Team Members</h2>
+
+    {% if profiles %}
+        <ul style="list-style: none; padding: 0;">
+            {% for profile in profiles %}
+                <li style="margin-bottom: 20px; display: flex; align-items: flex-start; gap: 20px;">
+                    {% if profile.photo %}
+                        <img src="{{ profile.photo.url }}" alt="{{ profile.full_name }}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 50px;">
+                    {% else %}
+                        <div style="width: 80px; height: 80px; background-color: #ccc; border-radius: 50px; display: flex; align-items: center; justify-content: center;">
+                            ❔
+                        </div>
+                    {% endif %}
+                    <div>
+                        <strong>{{ profile.full_name }}</strong> — {{ profile.position }}
+                        <p>{{ profile.bio|truncatewords:20 }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No profiles found.</p>
+    {% endif %}
+{% endblock %}

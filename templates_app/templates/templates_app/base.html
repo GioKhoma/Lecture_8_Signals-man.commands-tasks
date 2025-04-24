@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My App{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'templates_app/css/style.css' %}">
+</head>
+<body>
+    <div class="sidebar">
+        <img src="{% static 'templates_app/images/image.jpg' %}" alt="Logo">
+        <a href="{% url 'home' %}">🏠 Home</a>
+        <a href="{% url 'about' %}">ℹ️ About</a>
+        <a href="{% url 'posts' %}">📝 Posts</a>
+        <a href="{% url 'profile_list' %}">👤 Profiles</a> 
+    </div>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
