@@ -1,0 +1,50 @@
+{% extends 'templates_app/base.html' %}
+
+{% block title %}Employee{% endblock %}
+
+{% block content %}
+  <!-- modelform_fragment.html -->
+  <form method="post" action="{% url 'employee' %}">
+    {% csrf_token %}
+    
+    {% for field in form %}
+      <div>
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+          <div class="error">{{ field.errors }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    <button type="submit">Save</button>
+  </form>
+
+  <hr>
+
+  <h2>Employee List</h2>
+  <table class="contact-table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for emp in employees %}
+        <tr>
+          <td>{{ emp.first_name }}</td>
+          <td>{{ emp.last_name }}</td>
+          <td>{{ emp.email }}</td>
+          <td>{{ emp.position }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No employees yet.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
