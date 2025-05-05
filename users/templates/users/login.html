@@ -14,7 +14,7 @@
         <form method="post" action="{% url 'users:login_user' %}">
           {% csrf_token %}
           <div class="form-group">
-            <label for="exampleInputEmail1">Username</label>
+            <label for="exampleInputEmail1">{{ form.username.label }}</label>
             <!-- <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username" name="username"> -->
             {{ form.username }}
             {{ form.errors }}

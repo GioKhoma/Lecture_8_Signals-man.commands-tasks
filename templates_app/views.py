@@ -105,6 +105,40 @@ def edit_emp(request, pk):
         }
         
         return render(request, "templates_app\edit_employee.html", context)
+    
+# # while using forms.Form instead of ModelForm
+# @login_required
+# def edit_emp(request, pk):
+#     employee = get_object_or_404(Employee, id=pk)
+
+#     if request.method == "POST":
+#         form = EmployeeForm(request.POST)
+#         if form.is_valid():
+#             # Update fields manually
+#             employee.first_name = form.cleaned_data['first_name']
+#             employee.last_name = form.cleaned_data['last_name']
+#             employee.email = form.cleaned_data['email']
+#             employee.position = form.cleaned_data['position']
+#             employee.save()
+
+#             messages.success(request, "Employee updated successfully.")
+#             return redirect("templates_app:employee")
+#     else:
+#         # Populate the form with existing data
+#         form = EmployeeForm(initial={
+#             'first_name': employee.first_name,
+#             'last_name': employee.last_name,
+#             'email': employee.email,
+#             'position': employee.position,
+#         })
+
+#     employees = Employee.objects.all()
+#     context = {
+#         "form": form,
+#         "employee": employee,
+#         "employees": employees
+#     }
+#     return render(request, "templates_app/edit_employee.html", context)
 
 
 @login_required
