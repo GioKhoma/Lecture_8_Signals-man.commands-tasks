@@ -126,3 +126,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "users.CustomUser"
 LOGIN_URL = '/users/login_user'
+LOGIN_REDIRECT_URL = '/'
+
+# Email backend for dev/test
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For testing, prints email to console
+DEFAULT_FROM_EMAIL = 'webmaster@example.com'
+
+# Token expires after 1 hour (3600 seconds)
+from datetime import timedelta
+
+PASSWORD_RESET_TIMEOUT = 3600  # in seconds (default is 259200 = 3 days)

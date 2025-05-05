@@ -147,6 +147,8 @@
           <a href="{% url 'templates_app:profile_list' %}">👤 Profiles</a> 
           <a href="{% url 'templates_app:contact' %}">📞 Contacts</a> 
           <a href="{% url 'templates_app:employee' %}">👔 Employee</a> 
+          <a href="{% url 'users:change_password' %}">🔒 Change Pass</a> 
+          <a href="{% url 'users:password_reset' %}">🗝️ Reset Pass</a> 
           <a href="{% url 'users:logout_user' %}">🚪 Log Out</a> 
 
         {% else %}
