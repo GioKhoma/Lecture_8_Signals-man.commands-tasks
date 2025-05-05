@@ -4,8 +4,8 @@
 
 {% block content %}
   <!-- modelform_fragment.html -->
-   <h1>Creating Employee</h1>
-  <form method="post" action="{% url 'templates_app:employee' %}">
+   <h1>Editing Employee</h1>
+  <form method="post" action="{% url 'templates_app:edit_emp' employee.id %}">
     {% csrf_token %}
     
     {% for field in form %}
@@ -19,6 +19,7 @@
     {% endfor %}
 
     <button type="submit">Save</button>
+    <a href="{% url 'templates_app:employee' %}">Cancel</a>
   </form>
 
   <hr>

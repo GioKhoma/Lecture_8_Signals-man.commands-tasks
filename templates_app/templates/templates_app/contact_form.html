@@ -1,10 +1,10 @@
-{% extends 'templates_app/base.html' %}
+{% extends 'base.html' %}
 
 {% block title %}Contact{% endblock %}
 
 {% block content %}
 
-  <form method="post" action="{% url 'contact' %}">
+  <form method="post" action="{% url 'templates_app:contact' %}">
     {% csrf_token %}
 
     <div>
