@@ -136,3 +136,7 @@ DEFAULT_FROM_EMAIL = 'webmaster@example.com'
 from datetime import timedelta
 
 PASSWORD_RESET_TIMEOUT = 3600  # in seconds (default is 259200 = 3 days)
+
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'

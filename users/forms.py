@@ -24,18 +24,19 @@ User = get_user_model()
 class CustomUserRegisterForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['email', 'first_name', "last_name",  
-                  'birthdate', 'phone_number', 'bio',
+        fields = ['email', 
+                #   'first_name', "last_name",  
+                #   'birthdate', 'phone_number', 'bio',
                   'password1', 'password2',
                   ]
         
         widgets = {
             'email': forms.EmailInput(attrs={'class': 'form-control form-control-lg'}),
-            'first_name': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
-            'birthdate': forms.DateInput(attrs={'class': 'form-control form-control-lg', 'type': 'date'}),
-            'phone_number': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
-            'bio': forms.Textarea(attrs={'class': 'form-control form-control-lg', 'rows': 4}),
+            # 'first_name': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
+            # 'last_name': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
+            # 'birthdate': forms.DateInput(attrs={'class': 'form-control form-control-lg', 'type': 'date'}),
+            # 'phone_number': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
+            # 'bio': forms.Textarea(attrs={'class': 'form-control form-control-lg', 'rows': 4}),
             'password1': forms.PasswordInput(attrs={'class': 'form-control form-control-lg'}),
             'password2': forms.PasswordInput(attrs={'class': 'form-control form-control-lg'}),
         }

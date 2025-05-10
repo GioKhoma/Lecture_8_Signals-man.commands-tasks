@@ -57,6 +57,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     birthdate = models.DateField(null=True, blank=True)
     phone_number = models.CharField(max_length=20, blank=True)
     bio = models.TextField(blank=True)
+    cv = models.FileField(upload_to='csv/', null=True, blank=True)
 
     # Required status fields
     is_active = models.BooleanField(default=True)  # Can login or not
