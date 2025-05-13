@@ -4,6 +4,7 @@ from django.db.models.signals import post_save, post_delete
 from django.core.mail import send_mail
 import os
 
+# The dispatch_uid is a unique identifier used to prevent a signal from being connected more than once.
 @receiver(post_save, sender=CustomUser, dispatch_uid="send_welcome_email")
 def send_welcome_email(sender, instance, created, **kwargs):
     """Send a welcome email when a new user is created"""
@@ -26,4 +27,5 @@ def delete_associated_file(sender, instance, **kwargs):
             os.remove(instance.cv.path)
 
 
+            
             
